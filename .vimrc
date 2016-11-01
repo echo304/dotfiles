@@ -14,6 +14,11 @@ au BufReadPost *
 \ exe "norm g`\"" |
 \ endif
 
+" location of backup, swap, undo
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
 set background=light
 set laststatus=2 " 상태바 표시를 항상한다
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
