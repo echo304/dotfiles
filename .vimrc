@@ -1,8 +1,8 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required		
+filetype off                  " required
 
-" 마지막으로 수정된 곳에 커서를 위치함		
-au BufReadPost *		
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |
 \ endif
@@ -15,8 +15,8 @@ au BufReadPost *
 " set directory=~/.vim/swap//
 " set undodir=~/.vim/undo//
 
-" vi 실행시 number line 생성		
-set nu		
+" vi 실행시 number line 생성
+set nu
 set background=light
 set laststatus=2 " 상태바 표시를 항상한다
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
@@ -24,6 +24,7 @@ set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으�
 set nopaste " prevent weird indentaion
 set smartcase " case sensitive
 set ruler " display current cursor positionn 'tpope/vim-surround'
+set cursorline
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -69,6 +70,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Auto-Pairs'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,8 +114,8 @@ let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
 " ================
 " Auto Command
 " ================
-autocmd vimenter * NERDTree
 autocmd BufWritePre * %s/\s\+$//e
+autocmd vimenter * IndentGuidesEnable
 
 " ================
 " Key Mapping
