@@ -24,7 +24,9 @@ set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으�
 set nopaste " prevent weird indentaion
 set smartcase " case sensitive
 set ruler " display current cursor positionn 'tpope/vim-surround'
-set cursorline
+set cursorline " Set highlighted line
+set incsearch " Start searching while entering
+set so=10 " Set scrolloff
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -72,6 +74,7 @@ Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-rails'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
