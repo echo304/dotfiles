@@ -1,23 +1,12 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" vi 실행시 number line 생성
-set nu
-" Set F6 to toggle relative number
-nmap <F6> :set rnu!<CR>
-" Override * to search a word on the current cursor and count its occurrences
-nnoremap * *<C-O>:%s///gn<CR><C-O>
-
-" 마지막으로 수정된 곳에 커서를 위치함
-au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |
 \ endif
 
 " location of backup, swap, undo
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+" set backupdir=~/.vim/backup//
+" set directory=~/.vim/swap//
+" set undodir=~/.vim/undo//
 
 set background=light
 set laststatus=2 " 상태바 표시를 항상한다
@@ -45,6 +34,9 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 
+" ================
+" Vundle Setting
+" ================
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -78,6 +70,9 @@ syntax enable
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" ===================
+" Setting for Plugins
+" ===================
 " Recommended settingor syntastc
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -96,6 +91,15 @@ let NERDTreeWinPos = "left"
 
 " colorscheme
 colorscheme jellybeans
-" NERD Tree는 F7키. Tag List는 F8키에 매칭.
+
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
+
+" ================
+" Key Mapping
+" ================
+" NERD Tree는 F7키
 nmap <F7> :NERDTree<CR>
+" Set F6 to toggle relative number
+nmap <F6> :set rnu!<CR>
+" Override * to search a word on the current cursor and count its occurrences
+nnoremap * *<C-O>:%s///gn<CR><C-O>
