@@ -1,13 +1,22 @@
 set nocompatible              " be iMproved, required
+filetype off                  " required		
+
+" 마지막으로 수정된 곳에 커서를 위치함		
+au BufReadPost *		
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |
 \ endif
 
+" ================
+" General Setting
+" ================
 " location of backup, swap, undo
 " set backupdir=~/.vim/backup//
 " set directory=~/.vim/swap//
 " set undodir=~/.vim/undo//
 
+" vi 실행시 number line 생성		
+set nu		
 set background=light
 set laststatus=2 " 상태바 표시를 항상한다
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
@@ -15,7 +24,6 @@ set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으�
 set nopaste " prevent weird indentaion
 set smartcase " case sensitive
 set ruler " display current cursor positionn 'tpope/vim-surround'
-autocmd vimenter * NERDTree
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -33,6 +41,10 @@ set ignorecase
 set tabstop=2
 set expandtab
 set shiftwidth=2
+
+" Split Related
+set splitbelow
+set splitright
 
 " ================
 " Vundle Setting
@@ -55,6 +67,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'rking/ag.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,11 +109,28 @@ colorscheme jellybeans
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
 
 " ================
+" Auto Command
+" ================
+autocmd vimenter * NERDTree
+autocmd BufWritePre * %s/\s\+$//e
+
+" ================
 " Key Mapping
 " ================
 " NERD Tree는 F7키
 nmap <F7> :NERDTree<CR>
+
 " Set F6 to toggle relative number
 nmap <F6> :set rnu!<CR>
+
 " Override * to search a word on the current cursor and count its occurrences
 nnoremap * *<C-O>:%s///gn<CR><C-O>
+
+" Enter key to add blank line without switch to insert mode
+nmap <CR> o<Esc>
+
+" Split Related Key Mapping
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
