@@ -14,6 +14,6 @@
 	autocrlf = input
 	safecrlf = true
 	editor = vim
-	excludesfile = /Users/SB/.global_ignore
+	excludesfile = ~/.global_ignore
 [push]
 	default = simple
