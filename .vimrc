@@ -27,6 +27,7 @@ set ruler " display current cursor positionn 'tpope/vim-surround'
 set cursorline " Set highlighted line
 set incsearch " Start searching while entering
 set so=10 " Set scrolloff
+set viminfo='100,f1 " Set viminfo file to save the marks
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
