@@ -1,0 +1,19 @@
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  a = add
+  hs = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[user]
+	name = Sangboak Lee
+	email = echo3042@gmail.com
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = vim
+	excludesfile = /Users/SB/.global_ignore
+[push]
+	default = simple

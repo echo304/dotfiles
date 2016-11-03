@@ -21,6 +21,7 @@ set background=light
 set laststatus=2 " 상태바 표시를 항상한다
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+au CursorHold * checktime " check the file change every 4s of inactivity in normal mode
 set nopaste " prevent weird indentaion
 set smartcase " case sensitive
 set ruler " display current cursor positionn 'tpope/vim-surround'
@@ -28,6 +29,8 @@ set cursorline " Set highlighted line
 set incsearch " Start searching while entering
 set so=10 " Set scrolloff
 set viminfo='100,f1 " Set viminfo file to save the marks
+set confirm " Ask when try to abandon unsaved buffer
+set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -124,6 +127,11 @@ autocmd vimenter * IndentGuidesEnable
 " ================
 " Key Mapping
 " ================
+" Buffer switch
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <slient> <F4> :bn<CR>
+nnoremap <slient> <F3> :bp<CR>
+
 " NERD Tree는 F7키
 nmap <F7> :NERDTree<CR>
 
@@ -141,3 +149,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Running macro on 'q' Key
+nnoremap <Space> @q
