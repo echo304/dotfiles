@@ -31,6 +31,7 @@ set so=10 " Set scrolloff
 set viminfo='100,f1 " Set viminfo file to save the marks
 set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
+set completeopt=longest,menuone
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -66,7 +67,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'The-NERD-Tree'
-Plugin 'AutoComplPop'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
@@ -79,6 +79,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
+Plugin 'shougo/neocomplcache.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,6 +102,19 @@ syntax enable
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" neocomplcache setting
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_min_syntax_length = 3 " 3 chars before pops up
+let g:neocomplcache_enable_auto_select = 0
+let g:neocomplcache_enable_smart_case = 1
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -153,3 +167,12 @@ nnoremap <C-H> <C-W><C-H>
 
 " Running macro on 'q' Key
 nnoremap <Space> @q
+
+" select popup menu when hit Tab
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "<Tab>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  " return neocomplcache#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
