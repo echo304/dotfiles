@@ -129,8 +129,9 @@ autocmd vimenter * IndentGuidesEnable
 " ================
 " Buffer switch
 nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <slient> <F4> :bn<CR>
-nnoremap <slient> <F3> :bp<CR>
+nnoremap <F4> :bn<CR>
+nnoremap <F3> :bp<CR>
+nnoremap <F2> :bp\|bd #<CR>
 
 " NERD Tree는 F7키
 nmap <F7> :NERDTree<CR>
