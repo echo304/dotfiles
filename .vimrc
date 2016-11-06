@@ -10,10 +10,13 @@ au BufReadPost *
 " ================
 " General Setting
 " ================
-" location of backup, swap, undo
-" set backupdir=~/.vim/backup//
-" set directory=~/.vim/swap//
-" set undodir=~/.vim/undo//
+" Sets central temp file location, to prevent local default behavior.
+if isdirectory($HOME . '/.vim/.tmp') == 0
+  :silent !mkdir -m 700 -p ~/.vim/.tmp > /dev/null 2>&1
+endif
+
+set backupdir=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
+set directory=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 
 " vi 실행시 number line 생성
 set nu
