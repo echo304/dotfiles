@@ -139,6 +139,11 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd vimenter * IndentGuidesEnable
 
 " ================
+" Command
+" ================
+command! MakeTags !ctags -R .
+
+" ================
 " Key Mapping
 " ================
 " Buffer switch
