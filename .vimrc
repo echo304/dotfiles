@@ -18,11 +18,9 @@ endif
 set backupdir=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 set directory=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 
-" vi 실행시 number line 생성
-set nu
-set background=light
+set nu " vi 실행시 number line 생성
+set background=dark
 set laststatus=2 " 상태바 표시를 항상한다
-set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
 au CursorHold * checktime " check the file change every 4s of inactivity in normal mode
 set nopaste " prevent weird indentaion
@@ -35,6 +33,7 @@ set viminfo='100,f1 " Set viminfo file to save the marks
 set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 set completeopt=longest,menuone
+set nowrap " Vim will not break the line
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -70,9 +69,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'The-NERD-Tree'
+" Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
@@ -101,10 +103,27 @@ syntax enable
 " ===================
 " Setting for Plugins
 " ===================
-" Recommended settingor syntastc
+" Recommended setting for syntastc
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 " neocomplcache setting
 let g:neocomplcache_enable_at_startup = 1
@@ -133,7 +152,12 @@ let NERDTreeWinPos = "left"
 " colorscheme
 colorscheme jellybeans
 
+" Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
+let g:airline_left_sep='>'
+let g:airline_right_sep='<'
+let g:airline_theme='dark'
+let g:airline_powerline_fonts=0
 
 " ================
 " Auto Command
@@ -156,10 +180,14 @@ nnoremap <F3> :bp<CR>
 nnoremap <F2> :bp\|bd #<CR>
 
 " NERD Tree는 F7키
-nmap <F7> :NERDTree<CR>
+nmap <F7> :NERDTreeToggle<CR>
+nmap - :NERDTreeFind<CR>
 
 " Set F6 to toggle relative number
 nmap <F6> :set rnu!<CR>
+
+" Set F8 to toggle paste mode
+map <silent> <F8> :set paste!<CR>
 
 " Override * to search a word on the current cursor and count its occurrences
 nnoremap * *<C-O>:%s///gn<CR><C-O>
