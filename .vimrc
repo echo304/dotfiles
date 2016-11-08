@@ -85,6 +85,8 @@ Plugin 'Auto-Pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplcache.vim'
+Plugin 'slim-template/vim-slim'
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -158,6 +160,13 @@ let g:airline_left_sep='>'
 let g:airline_right_sep='<'
 let g:airline_theme='dark'
 let g:airline_powerline_fonts=0
+
+" Ignore for ctrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|node_modules',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+let g:ctrlp_max_files=20000
 
 " ================
 " Auto Command
