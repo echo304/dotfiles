@@ -168,6 +168,9 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_max_files=20000
 
+" Setting for AutoPairs
+let g:AutoPairsShortcutBackInsert = '<C-B>'
+
 " ================
 " Auto Command
 " ================
