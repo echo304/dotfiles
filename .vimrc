@@ -19,6 +19,7 @@ set backupdir=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 set directory=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 
 set nu " vi 실행시 number line 생성
+set rnu " Use relative number
 set background=dark
 set laststatus=2 " 상태바 표시를 항상한다
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
@@ -86,7 +87,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplcache.vim'
 Plugin 'slim-template/vim-slim'
-Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
