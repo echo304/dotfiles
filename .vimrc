@@ -35,6 +35,9 @@ set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 set completeopt=longest,menuone
 set nowrap " Vim will not break the line
+set lazyredraw " For faster scrolling
+set synmaxcol=128
+syntax sync minlines=256
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
