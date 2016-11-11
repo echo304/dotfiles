@@ -36,7 +36,6 @@ set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 set completeopt=longest,menuone
 set nowrap " Vim will not break the line
 set lazyredraw " For faster scrolling
-set synmaxcol=128
 syntax sync minlines=256
 
 " 코딩 작업시 자동 들여쓰기
@@ -159,6 +158,7 @@ colorscheme jellybeans
 
 " Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
+" let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:airline_left_sep='>'
 let g:airline_right_sep='<'
 let g:airline_theme='dark'
