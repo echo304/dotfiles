@@ -89,6 +89,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplcache.vim'
 Plugin 'slim-template/vim-slim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,6 +176,14 @@ let g:ctrlp_max_files=20000
 " Setting for AutoPairs
 let g:AutoPairsShortcutBackInsert = '<C-B>'
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " ================
 " Auto Command
 " ================
@@ -220,7 +230,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Space> @q
 
 " select popup menu when hit Tab
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "<Tab>"
+" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   " return neocomplcache#smart_close_popup() . "\<CR>"
