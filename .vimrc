@@ -34,9 +34,11 @@ set viminfo='100,f1 " Set viminfo file to save the marks
 set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 set completeopt=longest,menuone
-set nowrap " Vim will not break the line
+" set nowrap " Vim will not break the line
 set lazyredraw " For faster scrolling
 syntax sync minlines=256
+set mouse=a " Enable mouse use
+set clipboard=unnamed " Use system clipboard with unnamed register
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
@@ -198,6 +200,10 @@ command! MakeTags !ctags -R .
 " ================
 " Key Mapping
 " ================
+" Move screen row
+noremap j gj
+noremap k gk
+
 " Buffer switch
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F4> :bn<CR>
