@@ -89,7 +89,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
-Plugin 'shougo/neocomplcache.vim'
+Plugin 'shougo/neocomplete.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -133,11 +133,25 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
-" neocomplcache setting
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_min_syntax_length = 3 " 3 chars before pops up
-let g:neocomplcache_enable_auto_select = 0
-let g:neocomplcache_enable_smart_case = 1
+" neocomplete setting
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 0
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -242,7 +256,7 @@ nnoremap <Space> @q
 " inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  " return neocomplcache#smart_close_popup() . "\<CR>"
+  " return neocomplete#smart_close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#smart_close_popup() : "\<CR>"
 endfunction
