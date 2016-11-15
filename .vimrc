@@ -204,6 +204,9 @@ command! MakeTags !ctags -R .
 noremap j gj
 noremap k gk
 
+" Replace current inner word with last yanked text
+nnoremap S diw"0P
+
 " Buffer switch
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F4> :bn<CR>
