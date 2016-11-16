@@ -205,6 +205,13 @@ let g:UltiSnipsEditSplit="vertical"
 " ================
 autocmd BufWritePre * %s/\s\+$//e
 autocmd vimenter * IndentGuidesEnable
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
 
 " ================
 " Command
