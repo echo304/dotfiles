@@ -81,13 +81,15 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'yggdroot/indentline'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplete.vim'
 Plugin 'slim-template/vim-slim'
@@ -134,6 +136,14 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
+" Indent guide setting
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_color_change_percent = 10
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=7
+" Indentline setting
+let g:indentLine_char = '|'
+
 " neocomplete setting
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 0
@@ -173,14 +183,12 @@ let g:NERDSpaceDelims = 1
 let NERDTreeWinPos = "left"
 
 " colorscheme
-colorscheme jellybeans
+colorscheme molokai
 
 " Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
 " let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_left_sep='>'
-let g:airline_right_sep='<'
-let g:airline_theme='dark'
+let g:airline_theme='molokai'
 let g:airline_powerline_fonts=0
 
 " Ignore for ctrlP
@@ -205,7 +213,7 @@ let g:UltiSnipsEditSplit="vertical"
 " Auto Command
 " ================
 autocmd BufWritePre * %s/\s\+$//e
-autocmd vimenter * IndentGuidesEnable
+" autocmd vimenter * IndentGuidesEnable
 augroup Mkdir
   autocmd!
   autocmd BufWritePre *
@@ -268,7 +276,7 @@ nnoremap <Space> @q
 " inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  " return neocomplete#smart_close_popup() . "\<CR>"
+  " return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#smart_close_popup() : "\<CR>"
+  return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
