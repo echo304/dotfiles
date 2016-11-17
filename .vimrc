@@ -221,6 +221,10 @@ command! MakeTags !ctags -R .
 " ================
 " Key Mapping
 " ================
+
+" Toggle comment
+nnoremap ,c :call NERDComment(0,"toggle")<CR>
+
 " Move screen row
 noremap j gj
 noremap k gk
