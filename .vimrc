@@ -93,6 +93,7 @@ Plugin 'shougo/neocomplete.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
