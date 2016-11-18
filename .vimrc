@@ -74,17 +74,22 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'The-NERD-Tree'
-" Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
+
+" Language Support Plugin
+Plugin 'sheerun/vim-polyglot'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'kchmck/vim-coffee-script'
+" Plugin 'slim-template/vim-slim'
+
+Plugin 'benekastah/neomake'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
@@ -92,7 +97,6 @@ Plugin 'Auto-Pairs'
 Plugin 'yggdroot/indentline'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplete.vim'
-Plugin 'slim-template/vim-slim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
@@ -114,27 +118,36 @@ syntax enable
 " ===================
 " Setting for Plugins
 " ===================
+
+" Neomake Setting
+autocmd! BufWritePost * Neomake
+
 " Recommended setting for syntastc
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+" let g:syntastic_error_symbol = '❌'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " Indent guide setting
 " let g:indent_guides_auto_colors = 0
@@ -170,11 +183,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
