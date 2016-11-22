@@ -17,6 +17,7 @@ endif
 
 set backupdir=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 set directory=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
+set term=screen-256color
 
 set nu " vi 실행시 number line 생성
 set rnu " Use relative number
@@ -93,8 +94,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Auto-Pairs'
-" Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'yggdroot/indentline'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-rails'
 Plugin 'shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
@@ -150,12 +150,10 @@ autocmd! BufWritePost * Neomake
 " let g:syntastic_check_on_wq = 0
 
 " Indent guide setting
-" let g:indent_guides_auto_colors = 0
-" let g:indent_guides_color_change_percent = 10
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=7
-" Indentline setting
-let g:indentLine_char = '|'
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_color_change_percent = 10
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 
 " neocomplete setting
 let g:neocomplete#enable_at_startup = 1
@@ -221,7 +219,7 @@ let g:UltiSnipsEditSplit="vertical"
 " Auto Command
 " ================
 autocmd BufWritePre * %s/\s\+$//e
-" autocmd vimenter * IndentGuidesEnable
+autocmd vimenter * IndentGuidesEnable
 augroup Mkdir
   autocmd!
   autocmd BufWritePre *
