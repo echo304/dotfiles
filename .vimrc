@@ -22,7 +22,10 @@ set term=screen-256color
 set nu " vi 실행시 number line 생성
 set rnu " Use relative number
 set background=dark
+
 set laststatus=2 " 상태바 표시를 항상한다
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{SL('CapsLockStatusline')}%y%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%-14.(%l,%c%V%)\ %P
+
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
 au CursorHold * checktime " check the file change every 4s of inactivity in normal mode
 set nopaste " prevent weird indentaion
@@ -31,6 +34,7 @@ set ruler " display current cursor positionn 'tpope/vim-surround'
 set cursorline " Set highlighted line
 set incsearch " Start searching while entering
 set so=10 " Set scrolloff
+set sidescrolloff=5
 set viminfo='100,f1 " Set viminfo file to save the marks
 set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
@@ -40,6 +44,7 @@ set lazyredraw " For faster scrolling
 syntax sync minlines=256
 set mouse=a " Enable mouse use
 set clipboard=unnamed " Use system clipboard with unnamed register
+set ttimeoutlen=50  " Make Esc work faster
 
 " 코딩 작업시 자동 들여쓰기
 set smartindent
