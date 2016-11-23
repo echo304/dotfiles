@@ -40,6 +40,8 @@ set confirm " Ask when try to abandon unsaved buffer
 set wildchar=<Tab> wildmenu wildmode=full " Show wildmenu
 set completeopt=longest,menuone
 " set nowrap " Vim will not break the line
+set nolist wrap linebreak breakat&vim " break the line only on tab or whitespace
+
 set lazyredraw " For faster scrolling
 syntax sync minlines=256
 set mouse=a " Enable mouse use
