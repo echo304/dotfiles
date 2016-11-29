@@ -17,7 +17,9 @@ endif
 
 set backupdir=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
 set directory=~/.vim/.tmp ",~/.local/tmp/vim,/var/tmp,/tmp,
-set term=screen-256color
+if (has('gui_running') != 1)
+  set term=screen-256color
+endif
 
 set nu " vi 실행시 number line 생성
 set rnu " Use relative number
@@ -25,6 +27,11 @@ set background=dark
 
 set laststatus=2 " 상태바 표시를 항상한다
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{SL('CapsLockStatusline')}%y%{SL('fugitive#statusline')}%#ErrorMsg#%{SL('SyntasticStatuslineFlag')}%*%=%-14.(%l,%c%V%)\ %P
+
+if has('gui_running') " Gui Setting
+  set linespace=2
+  set guifont=Monaco:h12
+endif
 
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
 au CursorHold * checktime " check the file change every 4s of inactivity in normal mode
@@ -159,8 +166,8 @@ autocmd! BufWritePost * Neomake
 " Indent guide setting
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 10
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=234
 
 " neocomplete setting
 let g:neocomplete#enable_at_startup = 1
@@ -197,6 +204,9 @@ let NERDTreeWinPos = "left"
 
 " colorscheme
 colorscheme molokai
+if has('gui_running') " Gui Setting
+  colorscheme mayansmoke
+endif
 
 " Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
