@@ -166,6 +166,9 @@ autocmd! BufWritePost * Neomake
 " Indent guide setting
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 10
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=254
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=253
+
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=234
 
@@ -204,9 +207,11 @@ let NERDTreeWinPos = "left"
 
 " colorscheme
 colorscheme molokai
-if has('gui_running') " Gui Setting
-  colorscheme mayansmoke
-endif
+" colorscheme mayansmoke
+" colorscheme desert256v2
+" colorscheme guardian
+" colorscheme distinguished
+" colorscheme github
 
 " Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
