@@ -207,11 +207,11 @@ let NERDTreeWinPos = "left"
 
 " colorscheme
 " colorscheme molokai
-" colorscheme mayansmoke
+colorscheme mayansmoke
 " colorscheme desert256v2
 " colorscheme guardian
 " colorscheme distinguished
-colorscheme github
+" colorscheme github
 
 " Airline setting
 let g:airline#extensions#tabline#enabled = 1 " ensable smarter tab line
