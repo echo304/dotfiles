@@ -166,11 +166,13 @@ autocmd! BufWritePost * Neomake
 " Indent guide setting
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 10
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=254
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=253
+" Indent color for dark theme
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=254
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=253
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=255
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=254
+" Indent color for light theme
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=255
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#e4e4e4 ctermbg=254
 
 " neocomplete setting
 let g:neocomplete#enable_at_startup = 1
@@ -206,8 +208,8 @@ let g:NERDSpaceDelims = 1
 let NERDTreeWinPos = "left"
 
 " colorscheme
-" colorscheme molokai
-colorscheme mayansmoke
+colorscheme molokai
+" colorscheme mayansmoke
 " colorscheme desert256v2
 " colorscheme guardian
 " colorscheme distinguished
