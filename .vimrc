@@ -206,6 +206,7 @@ let g:NERDSpaceDelims = 1
 
 " NERD Tree를 왼쪽에 생성
 let NERDTreeWinPos = "left"
+let g:NERDTreeWinSize=60
 
 " colorscheme
 colorscheme molokai
