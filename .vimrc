@@ -167,8 +167,8 @@ autocmd! BufWritePost * Neomake
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_color_change_percent = 10
 " Indent color for dark theme
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=254
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=253
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030 ctermbg=236
 
 " Indent color for light theme
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#eeeeee ctermbg=255
