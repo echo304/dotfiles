@@ -210,6 +210,7 @@ let g:NERDTreeWinSize=60
 
 " colorscheme
 colorscheme molokai
+" colorscheme Monokai
 " colorscheme mayansmoke
 " colorscheme desert256v2
 " colorscheme guardian
@@ -290,6 +291,9 @@ map <silent> <F8> :set paste!<CR>
 
 " Override * to search a word on the current cursor and count its occurrences
 nnoremap * *<C-O>:%s///gn<CR><C-O>
+
+" :noh when press esc
+nnoremap <esc> :noh<return><esc>
 
 " Enter key to add blank line without switch to insert mode
 nmap <CR> o<Esc>
