@@ -279,7 +279,7 @@ nnoremap <F4> :bn<CR>
 nnoremap <F3> :bp<CR>
 nnoremap <F2> :bp\|bd #<CR>
 
-" NERD Tree는 F7키
+" nerd tREE는 f7키
 nmap <F7> :NERDTreeToggle<CR>
 nmap - :NERDTreeFind<CR>
 
@@ -293,7 +293,10 @@ map <silent> <F8> :set paste!<CR>
 nnoremap * *<C-O>:%s///gn<CR><C-O>
 
 " :noh when press esc
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <Esc><Esc> :noh<return><esc>
+
+" correct indent with p
+nnoremap <leader>p p`[v`]=
 
 " Enter key to add blank line without switch to insert mode
 nmap <CR> o<Esc>
@@ -317,12 +320,12 @@ function! s:my_cr_function()
 endfunction
 
 function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
 map <leader>n :call RenameFile()<cr>
