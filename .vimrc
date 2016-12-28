@@ -94,11 +94,13 @@ Plugin 'kien/ctrlp.vim'
 
 " Language Support Plugin
 Plugin 'sheerun/vim-polyglot'
+Plugin 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'kchmck/vim-coffee-script'
 " Plugin 'slim-template/vim-slim'
 
+Plugin 'mattn/emmet-vim'
 Plugin 'benekastah/neomake'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-airline/vim-airline'
@@ -132,6 +134,13 @@ syntax enable
 " ===================
 " Setting for Plugins
 " ===================
+
+" Emmet setting
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 " Neomake Setting
 autocmd! BufWritePost * Neomake
