@@ -1,0 +1,21 @@
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias g='git '
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias ll='ls -la'
+alias cd..='cd ..'
+alias ..='cd ..'
+
+alias vi='vim'
+alias tmux="TERM=screen-256color-bce tmux"
+alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+
