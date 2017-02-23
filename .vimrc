@@ -30,7 +30,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%{SL('CapsLockStatusline')}%y%{SL('fugitiv
 
 if has('gui_running') " Gui Setting
   set linespace=2
-  set guifont=Monaco:h12
+  set guifont=Monaco:h11
 endif
 
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
