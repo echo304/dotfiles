@@ -56,10 +56,11 @@ set clipboard=unnamed " Use system clipboard with unnamed register
 set ttimeoutlen=50  " Make Esc work faster
 
 " 코딩 작업시 자동 들여쓰기
-set smartindent
+" set smartindent
 set autoindent
 set cindent
 set bs=indent,eol,start    " backspace 키 사용 가능
+set indentkeys+=0[,0],0(
 
 " 일반모드에서 / 검색시 하이라이팅
 set hlsearch
@@ -94,7 +95,7 @@ Plugin 'kien/ctrlp.vim'
 
 " Language Support Plugin
 Plugin 'sheerun/vim-polyglot'
-Plugin 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
+" Plugin 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'kchmck/vim-coffee-script'
@@ -120,7 +121,8 @@ Plugin 'flazz/vim-colorschemes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-syntax enable
+syntax on
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
