@@ -82,14 +82,27 @@ values."
   (setq c-basic-offset n)
   ;; web development
   (setq coffee-tab-width n) ; coffeescript
-  (setq javascript-indent-level n) ; javascript-mode
-  (setq js-indent-level n) ; js-mode
-  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq css-indent-offset n) ; css-mode
-  )
+  (setq-local javascript-indent-level n) ; javascript-mode
+  (setq-local js-indent-level n) ; js-mode
+  (setq-local react-indent-level n) ; react-mode
+  (setq-local js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq-local web-mode-attr-indent-offset n) ; web-mode
+  (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq-local web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq-local web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq-local web-mode-sql-indent-offset n) ; web-mode
+  (setq-local web-mode-attr-value-indent-offset n) ; web-mode
+  (setq-local css-indent-offset n) ; css-mode
+  (setq-local sh-basic-offset n) ; shell scripts
+  (setq-local sh-indentation n))
+
+(defun my-personal-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (my-setup-indent 2))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -151,7 +164,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(ujelly
+                         spacemacs-dark
+                         afternoon
+                         ample
+                         ample-flat
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -315,7 +332,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (my-setup-indent 2) ; indent 2 spaces width
   )
 
 (defun dotspacemacs/user-config ()
@@ -325,6 +341,16 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (my-personal-code-style) ;; it would be lovely if this was enough, but it gets stomped on by modes >:(
+
+  (add-hook 'css-mode-hook 'my-personal-code-style)
+  (add-hook 'js2-mode-hook 'my-personal-code-style)
+  (add-hook 'react-mode-hook 'my-personal-code-style)
+  (add-hook 'sh-mode-hook 'my-personal-code-style)
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
