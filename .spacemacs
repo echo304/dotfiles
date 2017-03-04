@@ -162,7 +162,12 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(ujelly
+   dotspacemacs-themes '(
+                         niflheim
+                         jbeans
+                         monokai
+                         naquadah
+                         sanityinc-tomorrow-eighties
                          spacemacs-dark
                          afternoon
                          ample
@@ -176,7 +181,7 @@ values."
                                :size 12
                                :weight normal
                                :width normal
-                               :powerline-scale 0.8)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
