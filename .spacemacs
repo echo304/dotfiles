@@ -40,8 +40,10 @@ values."
      ;; ----------------------------------------------------------------
      helm
      (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
                       auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip 'manual
                       auto-completion-enable-sort-by-usage t)
      better-defaults
      emacs-lisp
