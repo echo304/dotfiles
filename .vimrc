@@ -268,7 +268,7 @@ augroup END
 " ================
 " Command
 " ================
-command! MakeTags !ctags -R .
+" command! MakeTags !ctags -R .
 
 " ================
 " Key Mapping
