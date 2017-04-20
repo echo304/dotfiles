@@ -62,8 +62,7 @@ values."
      osx
      elixir
      javascript
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar t)
+     (colors :variables)
      ;; syntax-checking
      yaml
      html
