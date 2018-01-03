@@ -11,9 +11,17 @@
 	name = Sangboak Lee
 	email = echo3042@gmail.com
 [core]
-	autocrlf = input
+	autocrlf = false
 	safecrlf = true
 	editor = vim
-	excludesfile = ~/.global_ignore
+	excludesfile = /Users/SB/.global_ignore
 [push]
 	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/SB/.stCommitMsg

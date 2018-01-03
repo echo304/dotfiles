@@ -103,7 +103,7 @@ Plugin 'sheerun/vim-polyglot'
 
 Plugin 'mattn/emmet-vim'
 Plugin 'benekastah/neomake'
-Plugin 'ludovicchabant/vim-gutentags'
+" Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'scrooloose/syntastic'
